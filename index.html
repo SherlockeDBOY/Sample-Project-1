@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale= 1">
+        <link rel="stylesheet" href="Css\style-index.css">
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/66de99e477.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="login-popup">
+            <div class="box">
+                <div class="img-area">
+                    <div class="img">
+                    </div>
+                    <h1>Welcome to the Page!!</h1>
+                </div>
+                <div class="close">&times;</div>
+            </div>
+    </div>
+    
+        <header>
+            <div class="container-nav">
+                <div class="container-logo">
+                    <h3 class="logo">LOGO</h3>
+                </div>
+                <div>
+                    <div class="nav-links">
+                        <ul>
+                            <li class="nav-links active"><a href="index.html">Home<i class="fas fa-caret-down" aria-hidden="true"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-links"><a href="#">Submenu1</a></li>
+                                    <li class="dropdown-links"><a href="#">Submenu2</a></li>
+                                    <li class="dropdown-links"><a href="#">Submenu3</a></li>
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                            </li>
+                            <li class="nav-links"><a href="about.html">About</a></li>
+                            <li class="nav-links"><a href="contact-us.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="carousel">
+                    <div class="carousel__item carousel__item--visible">
+                        <h2>Welcome</h2>
+                        <img src="img\Car01.jpg" />
+                    </div>
+                    <div class="carousel__item">
+                        <h2>To</h2>
+                        <img src="img\Car02.jpg" />
+                    </div>
+                    <div class="carousel__item">
+                        <h2>My Sample page</h2>
+                        <img src="img\Car03.jpg" />
+                    </div>
+            
+                    <div class="carousel__actions">
+                        <button id="carousel__button--prev" aria-label="Previous slide"><</button>
+                        <button id="carousel__button--next" aria-label="Next slide">></button>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="grid-item">
+                      <div class="card">
+                        <img class="card-img" src="img\Car01.jpg" alt="" />
+                        <div class="card-content">
+                          <h1 class="card-header">Sample</h1>
+                          <p class="card-text">
+                            Content boxes with images, text and links
+                          </p>
+                          <button class="card-btn">Visit <span>&rarr;</span></button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="grid-item">
+                      <div class="card">
+                        <img class="card-img" src="img\Car02.jpg" alt=""/>
+                        <div class="card-content">
+                          <h1 class="card-header">Sample</h1>
+                          <p class="card-text">
+                            Content boxes with images, text and links
+                          </p>
+                          <button class="card-btn">Visit <span>&rarr;</span></button>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="grid-item">
+                        <div class="card">
+                        <img class="card-img" src="img\Car03.jpg" alt="" />
+                        <div class="card-content">
+                            <h1 class="card-header">Sample</h1>
+                            <p class="card-text">
+                                Content boxes with images, text and links
+                            </p>
+                            <button class="card-btn">Visit <span>&rarr;</span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        </main>
+        
+        <footer class="footer-distributed">
+            <div class="footer-left">
+                <h3>Sample<span>Project</span></h3>
+                <p class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">About</a>
+                    <a href="#">Faq</a>
+                    <a href="#">Contact</a>
+                </p>
+                <p class="footer-company-name">Copyright Protected &copy; Shakthi</p>
+            </div>
+    
+            <div class="footer-center">
+                <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Chennai,</span> Tamil Nadu, India</p>
+                </div>
+            </div>
+    
+            <div class="footer-right">
+                <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+                </div>
+            </div>
+        </footer>
+        <script src="JS\script.js"></script>
+        <script>
+            let slidePosition = 0;
+const slides = document.getElementsByClassName('carousel__item');
+const totalSlides = slides.length;
+
+document.
+  getElementById('carousel__button--next')
+  .addEventListener("click", function() {
+    moveToNextSlide();
+  });
+document.
+  getElementById('carousel__button--prev')
+  .addEventListener("click", function() {
+    moveToPrevSlide();
+  });
+
+function updateSlidePosition() {
+  for (let slide of slides) {
+    slide.classList.remove('carousel__item--visible');
+    slide.classList.add('carousel__item--hidden');
+  }
+
+  slides[slidePosition].classList.add('carousel__item--visible');
+}
+
+function moveToNextSlide() {
+  if (slidePosition === totalSlides - 1) {
+    slidePosition = 0;
+  } else {
+    slidePosition++;
+  }
+
+  updateSlidePosition();
+}
+
+function moveToPrevSlide() {
+  if (slidePosition === 0) {
+    slidePosition = totalSlides - 1;
+  } else {
+    slidePosition--;
+  }
+
+  updateSlidePosition();
+}
+
+        </script>
+    </body>
+</html>
